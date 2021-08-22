@@ -1,0 +1,11 @@
+body {
+  @apply bg-gray-50
+}
+
+nav ul li a {
+  @apply py-1 pl-8 block
+}
+
+nav ul li a:hover {
+  @apply py-1 pl-8 bg-gray-500 text-white cursor-pointer
+}
