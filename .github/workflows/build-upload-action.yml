@@ -5,6 +5,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [15.x]
+
     steps:
       - uses: actions/checkout@v2
       # Here is the deployment action
