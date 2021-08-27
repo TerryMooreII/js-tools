@@ -59,7 +59,7 @@ export class AppRoot {
           </ul>
         </nav>
         <main class="w-full py-8 pr-16 pl-96">
-          <stencil-router>
+          <stencil-router root="/tools">
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url="/" component="app-home" exact={true} />
               <stencil-route url="/url-encoder" component="app-url-encoder" />
