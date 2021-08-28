@@ -6,10 +6,15 @@ import { Component, h, State } from '@stencil/core';
 export class AppBase64Decoder {
   @State() value
 
+
   transform(e) {
-    this.value = decodeURIComponent(atob(e.detail).split('').map(function (c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+    try {
+      this.value = decodeURIComponent(atob(e.detail).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+    } catch (error) {
+      this.value = error.message
+    }
   }
 
   render() {

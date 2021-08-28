@@ -7,7 +7,11 @@ export class AppUrlEncoder {
   @State() value
 
   transform(e) {
-    this.value = encodeURIComponent(e.detail)
+    try {
+      this.value = encodeURIComponent(e.detail)
+    } catch (error) {
+      this.value = error.message
+    }
   }
 
   render() {

@@ -7,11 +7,15 @@ export class AppBase64Encoder {
   @State() value
 
   transform(e) {
-    this.value = btoa(encodeURIComponent(e.detail).replace(/%([0-9A-F]{2})/g,
+    try {
+      this.value = btoa(encodeURIComponent(e.detail).replace(/%([0-9A-F]{2})/g,
       function toSolidBytes(_match, p1) {
         //@ts-ignore
         return String.fromCharCode(`0x${p1}`);
-    }));
+      }));
+    } catch (error) {
+      this.value = error.message
+    }
   }
 
   render() {

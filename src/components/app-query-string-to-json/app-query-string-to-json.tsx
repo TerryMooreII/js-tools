@@ -7,7 +7,6 @@ export class AppQueryStringToJson {
   @State() value: any
 
   parseValue(value) {
-    console.log(value)
     if (value === null) return null
     if (value === undefined || value === '') return undefined 
     const number = Number(value)
