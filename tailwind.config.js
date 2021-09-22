@@ -1,9 +1,12 @@
 module.exports = {
-  purge: [
-    './src/**/*.html',
-    './src/**/*.tsx',
-    './src/**/*.css'
-  ],
+  purge: {
+    enabled: true,
+    content: [
+      './src/**/*.html',
+      './src/**/*.tsx',
+      './src/**/*.css'
+    ]
+  },
   darkMode: 'class',
   theme: {
     extend: {},
