@@ -1,8 +1,11 @@
 import { Component, Host, h, Prop, State, Watch} from '@stencil/core';
 import Prism from 'prismjs';
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-markup'
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-typescript';
 
 
 @Component({ 
@@ -24,13 +27,13 @@ export class AppOutput {
     if (this.html) {
       const el = document.querySelector('#html')
       el.innerHTML = n
+      Prism.highlightAll()
       return
     }
 
     const el = document.querySelector('code')
     if (!this.highlight) {
       el.innerText = n
-      return
     }
     el.innerHTML = Prism.highlight(n, Prism.languages[this.highlight], this.highlight)
   }
@@ -60,7 +63,7 @@ export class AppOutput {
             </button>
           </div>
             { this.html
-            ? (<article id="html" class={`${clazz} prose prose-gray prose-base`} />)
+            ? (<div class={`${clazz}`}><div  id="html" class="prose prose-gray prose-base" /></div>)
             :
               (<pre class={clazz}>
                 <code></code> 
