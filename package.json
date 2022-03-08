@@ -14,13 +14,14 @@
     "@stencil/core": "^2.7.0",
     "@stencil/postcss": "^2.0.0",
     "@stencil/router": "^1.0.1",
+    "@tailwindcss/typography": "^0.5.2",
     "@types/jest": "^26.0.24",
     "autoprefixer": "^10.3.1",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "postcss": "^8.3.6",
     "puppeteer": "^10.0.0",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^3.0.23"
   },
   "license": "MIT",
   "dependencies": {

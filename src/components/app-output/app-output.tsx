@@ -60,7 +60,7 @@ export class AppOutput {
             </button>
           </div>
             { this.html
-            ? (<div id="html" class={clazz}></div>)
+            ? (<article id="html" class={`${clazz} prose prose-gray prose-base`} />)
             :
               (<pre class={clazz}>
                 <code></code> 
