@@ -31,6 +31,7 @@ export class AppHtmlDecoder {
         <app-output
           label="Output"
           value={this.value}
+          highlight="html"
         >
         </app-output>
         

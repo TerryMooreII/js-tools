@@ -56,6 +56,11 @@ export class AppRoot {
                 JWT Debugger
               </stencil-route-link>
             </li>
+            <li>
+              <stencil-route-link url="/markdown">
+                Markdown
+              </stencil-route-link>
+            </li>
           </ul>
         </nav>
         <main class="w-full py-8 pr-16 pl-96">
@@ -71,6 +76,7 @@ export class AppRoot {
               <stencil-route url="/html-encoder" component="app-html-encoder" />
               <stencil-route url="/html-decoder" component="app-html-decoder" />
               <stencil-route url="/jwt-debugger" component="app-jwt" />
+              <stencil-route url="/markdown" component="app-markdown" />
             </stencil-route-switch>
           </stencil-router>
         </main>

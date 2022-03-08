@@ -28,8 +28,11 @@ export namespace Components {
     }
     interface AppJwt {
     }
+    interface AppMarkdown {
+    }
     interface AppOutput {
         "highlight": any;
+        "html": boolean;
         "label": string;
         "side": boolean;
         "value": string;
@@ -98,6 +101,12 @@ declare global {
         prototype: HTMLAppJwtElement;
         new (): HTMLAppJwtElement;
     };
+    interface HTMLAppMarkdownElement extends Components.AppMarkdown, HTMLStencilElement {
+    }
+    var HTMLAppMarkdownElement: {
+        prototype: HTMLAppMarkdownElement;
+        new (): HTMLAppMarkdownElement;
+    };
     interface HTMLAppOutputElement extends Components.AppOutput, HTMLStencilElement {
     }
     var HTMLAppOutputElement: {
@@ -138,6 +147,7 @@ declare global {
         "app-input": HTMLAppInputElement;
         "app-json-parser": HTMLAppJsonParserElement;
         "app-jwt": HTMLAppJwtElement;
+        "app-markdown": HTMLAppMarkdownElement;
         "app-output": HTMLAppOutputElement;
         "app-query-string-to-json": HTMLAppQueryStringToJsonElement;
         "app-root": HTMLAppRootElement;
@@ -169,8 +179,11 @@ declare namespace LocalJSX {
     }
     interface AppJwt {
     }
+    interface AppMarkdown {
+    }
     interface AppOutput {
         "highlight"?: any;
+        "html"?: boolean;
         "label"?: string;
         "side"?: boolean;
         "value"?: string;
@@ -193,6 +206,7 @@ declare namespace LocalJSX {
         "app-input": AppInput;
         "app-json-parser": AppJsonParser;
         "app-jwt": AppJwt;
+        "app-markdown": AppMarkdown;
         "app-output": AppOutput;
         "app-query-string-to-json": AppQueryStringToJson;
         "app-root": AppRoot;
@@ -213,6 +227,7 @@ declare module "@stencil/core" {
             "app-input": LocalJSX.AppInput & JSXBase.HTMLAttributes<HTMLAppInputElement>;
             "app-json-parser": LocalJSX.AppJsonParser & JSXBase.HTMLAttributes<HTMLAppJsonParserElement>;
             "app-jwt": LocalJSX.AppJwt & JSXBase.HTMLAttributes<HTMLAppJwtElement>;
+            "app-markdown": LocalJSX.AppMarkdown & JSXBase.HTMLAttributes<HTMLAppMarkdownElement>;
             "app-output": LocalJSX.AppOutput & JSXBase.HTMLAttributes<HTMLAppOutputElement>;
             "app-query-string-to-json": LocalJSX.AppQueryStringToJson & JSXBase.HTMLAttributes<HTMLAppQueryStringToJsonElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;

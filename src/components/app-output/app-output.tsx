@@ -15,11 +15,18 @@ export class AppOutput {
   @Prop() label = 'Output'
   @Prop() value = ''
   @Prop() highlight = null
+  @Prop() html = false
  
   @State() copyText = 'Copy'
 
   @Watch('value')
   watchHandler(n) {
+    if (this.html) {
+      const el = document.querySelector('#html')
+      el.innerHTML = n
+      return
+    }
+
     const el = document.querySelector('code')
     if (!this.highlight) {
       el.innerText = n
@@ -37,6 +44,8 @@ export class AppOutput {
   }
 
   render() {
+    const clazz = `font-sans border border-gray-400 w-full bg-white p-2 rounded-b rounded-tl overflow-auto ${this.side ? 'h-full ': 'min-output-height'}`
+
     return ( 
       <Host>
         <div class="control my-10" style={{height: `${this.side ? 'calc(100vh - 200px)' : 'auto'}` }}>
@@ -50,12 +59,15 @@ export class AppOutput {
               {this.copyText}
             </button>
           </div>
-          
-            <pre class={`font-sans border border-gray-400 w-full bg-white p-2 rounded-b rounded-tl overflow-auto ${this.side ? 'h-full ': 'min-output-height'}`}>
-              <code></code> 
-            </pre>
+            { this.html
+            ? (<div id="html" class={clazz}></div>)
+            :
+              (<pre class={clazz}>
+                <code></code> 
+              </pre>)
+            } 
           </div>
-        
+            
       </Host>
     );
   }
