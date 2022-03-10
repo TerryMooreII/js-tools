@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, EventEmitter, Event, Watch } from '@stencil/core';
+import { Component, Host, h, Prop, EventEmitter, Event } from '@stencil/core';
 
 @Component({
   tag: 'app-input'
