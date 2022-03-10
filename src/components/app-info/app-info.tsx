@@ -11,7 +11,7 @@ export class AppInfo {
     return (
       <Host>
         <div>
-          <div class="title text-2xl">
+          <div class="title text-xl capitalize">
             {this.title}
           </div>
           <div class="description h-4">

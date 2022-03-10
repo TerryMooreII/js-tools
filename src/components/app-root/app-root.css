@@ -3,9 +3,17 @@ body {
 }
 
 nav ul li a {
-  @apply py-1 pl-8 block
+  @apply py-1 pl-8 block text-sm
 }
 
 nav ul li a:hover {
   @apply py-1 pl-8 bg-gray-500 text-white cursor-pointer
+}
+
+nav ul li a.link-active {
+  @apply py-1 pl-8 bg-gray-500 text-white cursor-pointer
+}
+
+nav h2 {
+  @apply text-sm uppercase mt-3 py-1 pl-4 text-gray-600 w-full bg-gray-200
 }

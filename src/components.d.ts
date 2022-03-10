@@ -5,10 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { MatchResults } from "@stencil/router";
 export namespace Components {
     interface AppBase64Decoder {
     }
     interface AppBase64Encoder {
+    }
+    interface AppCodeFormatter {
+        "match": MatchResults;
     }
     interface AppHome {
     }
@@ -58,6 +62,12 @@ declare global {
     var HTMLAppBase64EncoderElement: {
         prototype: HTMLAppBase64EncoderElement;
         new (): HTMLAppBase64EncoderElement;
+    };
+    interface HTMLAppCodeFormatterElement extends Components.AppCodeFormatter, HTMLStencilElement {
+    }
+    var HTMLAppCodeFormatterElement: {
+        prototype: HTMLAppCodeFormatterElement;
+        new (): HTMLAppCodeFormatterElement;
     };
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
@@ -140,6 +150,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-base64-decoder": HTMLAppBase64DecoderElement;
         "app-base64-encoder": HTMLAppBase64EncoderElement;
+        "app-code-formatter": HTMLAppCodeFormatterElement;
         "app-home": HTMLAppHomeElement;
         "app-html-decoder": HTMLAppHtmlDecoderElement;
         "app-html-encoder": HTMLAppHtmlEncoderElement;
@@ -159,6 +170,9 @@ declare namespace LocalJSX {
     interface AppBase64Decoder {
     }
     interface AppBase64Encoder {
+    }
+    interface AppCodeFormatter {
+        "match"?: MatchResults;
     }
     interface AppHome {
     }
@@ -199,6 +213,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "app-base64-decoder": AppBase64Decoder;
         "app-base64-encoder": AppBase64Encoder;
+        "app-code-formatter": AppCodeFormatter;
         "app-home": AppHome;
         "app-html-decoder": AppHtmlDecoder;
         "app-html-encoder": AppHtmlEncoder;
@@ -220,6 +235,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-base64-decoder": LocalJSX.AppBase64Decoder & JSXBase.HTMLAttributes<HTMLAppBase64DecoderElement>;
             "app-base64-encoder": LocalJSX.AppBase64Encoder & JSXBase.HTMLAttributes<HTMLAppBase64EncoderElement>;
+            "app-code-formatter": LocalJSX.AppCodeFormatter & JSXBase.HTMLAttributes<HTMLAppCodeFormatterElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-html-decoder": LocalJSX.AppHtmlDecoder & JSXBase.HTMLAttributes<HTMLAppHtmlDecoderElement>;
             "app-html-encoder": LocalJSX.AppHtmlEncoder & JSXBase.HTMLAttributes<HTMLAppHtmlEncoderElement>;
