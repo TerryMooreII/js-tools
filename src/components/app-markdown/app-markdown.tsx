@@ -26,7 +26,7 @@ export class AppMarkdown {
     return (
       <div>
         <app-info
-          title="Markdown"
+          title="Markdown Previewer"
         >
         </app-info>
 

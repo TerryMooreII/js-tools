@@ -59,7 +59,7 @@ export class AppRoot {
             </li>
             <li>
               <stencil-route-link url="/markdown">
-                Markdown
+                Markdown Previewer
               </stencil-route-link>
             </li>
           </ul>
