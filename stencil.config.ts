@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
 import autoprefixer from 'autoprefixer';
-import tailwindcss from "tailwindcss";
+import tailwindcss from '@tailwindcss/postcss';
 
 // https://stenciljs.com/docs/config
 
@@ -14,7 +14,7 @@ export const config: Config = {
       type: 'www',
       // comment the following line to disable service workers in production
       serviceWorker: null,
-      baseUrl: '/tools/',
+      baseUrl: '/js-tools/',
       copy: [
         { src: '.htaccess', dest: '.htaccess' }
       ]
@@ -23,7 +23,7 @@ export const config: Config = {
   plugins: [
     postcss({
       plugins: [
-        tailwindcss("./tailwind.config.js"),
+        tailwindcss({ optimize: true }),
         autoprefixer()
       ]
     })

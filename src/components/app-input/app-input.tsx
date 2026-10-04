@@ -16,7 +16,7 @@ export class AppInput {
   render() {
     return (
       <Host>
-        <div class="control my-10 w-100" style={{height: `${this.side ? 'calc(100vh - 200px)' : 'auto'}` }}>
+        <div class="control my-10 w-full" style={{height: `${this.side ? 'calc(100vh - 200px)' : 'auto'}` }}>
           <div class="flex justify-between mb-1">
             <label htmlFor="">{this.label}</label>
           </div>

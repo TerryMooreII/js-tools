@@ -8,7 +8,15 @@
   Any global CSS variables should also be applied here.
 */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '~tailwindcss/index.css';
+@plugin '@tailwindcss/typography';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tailwind v4 no longer sets cursor: pointer on buttons by default */
+@layer base {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}

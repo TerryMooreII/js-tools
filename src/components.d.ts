@@ -5,14 +5,41 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults } from "@stencil/router";
 export namespace Components {
     interface AppBase64Decoder {
     }
     interface AppBase64Encoder {
     }
+    interface AppCase {
+    }
     interface AppCodeFormatter {
-        "match": MatchResults;
+        "language": string;
+    }
+    interface AppColor {
+    }
+    interface AppCron {
+    }
+    interface AppDiff {
+    }
+    interface AppField {
+        /**
+          * @default 'Input'
+         */
+        "label": string;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * @default 'text'
+         */
+        "type": string;
+        /**
+          * @default ''
+         */
+        "value": string;
+    }
+    interface AppHash {
     }
     interface AppHome {
     }
@@ -21,34 +48,83 @@ export namespace Components {
     interface AppHtmlEncoder {
     }
     interface AppInfo {
+        /**
+          * @default ''
+         */
         "description": string;
+        /**
+          * @default 'Title'
+         */
         "title": string;
     }
     interface AppInput {
+        /**
+          * @default 'Input'
+         */
         "label": string;
+        /**
+          * @default false
+         */
         "side": boolean;
     }
     interface AppJsonParser {
     }
+    interface AppJsonYaml {
+    }
     interface AppJwt {
+    }
+    interface AppLorem {
     }
     interface AppMarkdown {
     }
     interface AppOutput {
+        /**
+          * @default null
+         */
         "highlight": any;
+        /**
+          * @default false
+         */
         "html": boolean;
+        /**
+          * @default 'Output'
+         */
         "label": string;
+        /**
+          * @default false
+         */
         "side": boolean;
+        /**
+          * @default ''
+         */
         "value": string;
+    }
+    interface AppPassword {
     }
     interface AppQueryStringToJson {
     }
+    interface AppRegex {
+    }
     interface AppRoot {
+    }
+    interface AppTimestamp {
     }
     interface AppUrlDecoder {
     }
     interface AppUrlEncoder {
     }
+    interface AppUrlParser {
+    }
+    interface AppUuid {
+    }
+}
+export interface AppFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAppFieldElement;
+}
+export interface AppInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAppInputElement;
 }
 declare global {
     interface HTMLAppBase64DecoderElement extends Components.AppBase64Decoder, HTMLStencilElement {
@@ -63,11 +139,58 @@ declare global {
         prototype: HTMLAppBase64EncoderElement;
         new (): HTMLAppBase64EncoderElement;
     };
+    interface HTMLAppCaseElement extends Components.AppCase, HTMLStencilElement {
+    }
+    var HTMLAppCaseElement: {
+        prototype: HTMLAppCaseElement;
+        new (): HTMLAppCaseElement;
+    };
     interface HTMLAppCodeFormatterElement extends Components.AppCodeFormatter, HTMLStencilElement {
     }
     var HTMLAppCodeFormatterElement: {
         prototype: HTMLAppCodeFormatterElement;
         new (): HTMLAppCodeFormatterElement;
+    };
+    interface HTMLAppColorElement extends Components.AppColor, HTMLStencilElement {
+    }
+    var HTMLAppColorElement: {
+        prototype: HTMLAppColorElement;
+        new (): HTMLAppColorElement;
+    };
+    interface HTMLAppCronElement extends Components.AppCron, HTMLStencilElement {
+    }
+    var HTMLAppCronElement: {
+        prototype: HTMLAppCronElement;
+        new (): HTMLAppCronElement;
+    };
+    interface HTMLAppDiffElement extends Components.AppDiff, HTMLStencilElement {
+    }
+    var HTMLAppDiffElement: {
+        prototype: HTMLAppDiffElement;
+        new (): HTMLAppDiffElement;
+    };
+    interface HTMLAppFieldElementEventMap {
+        "transform": any;
+    }
+    interface HTMLAppFieldElement extends Components.AppField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAppFieldElementEventMap>(type: K, listener: (this: HTMLAppFieldElement, ev: AppFieldCustomEvent<HTMLAppFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAppFieldElementEventMap>(type: K, listener: (this: HTMLAppFieldElement, ev: AppFieldCustomEvent<HTMLAppFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAppFieldElement: {
+        prototype: HTMLAppFieldElement;
+        new (): HTMLAppFieldElement;
+    };
+    interface HTMLAppHashElement extends Components.AppHash, HTMLStencilElement {
+    }
+    var HTMLAppHashElement: {
+        prototype: HTMLAppHashElement;
+        new (): HTMLAppHashElement;
     };
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
@@ -93,7 +216,18 @@ declare global {
         prototype: HTMLAppInfoElement;
         new (): HTMLAppInfoElement;
     };
+    interface HTMLAppInputElementEventMap {
+        "transform": any;
+    }
     interface HTMLAppInputElement extends Components.AppInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAppInputElementEventMap>(type: K, listener: (this: HTMLAppInputElement, ev: AppInputCustomEvent<HTMLAppInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAppInputElementEventMap>(type: K, listener: (this: HTMLAppInputElement, ev: AppInputCustomEvent<HTMLAppInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAppInputElement: {
         prototype: HTMLAppInputElement;
@@ -105,11 +239,23 @@ declare global {
         prototype: HTMLAppJsonParserElement;
         new (): HTMLAppJsonParserElement;
     };
+    interface HTMLAppJsonYamlElement extends Components.AppJsonYaml, HTMLStencilElement {
+    }
+    var HTMLAppJsonYamlElement: {
+        prototype: HTMLAppJsonYamlElement;
+        new (): HTMLAppJsonYamlElement;
+    };
     interface HTMLAppJwtElement extends Components.AppJwt, HTMLStencilElement {
     }
     var HTMLAppJwtElement: {
         prototype: HTMLAppJwtElement;
         new (): HTMLAppJwtElement;
+    };
+    interface HTMLAppLoremElement extends Components.AppLorem, HTMLStencilElement {
+    }
+    var HTMLAppLoremElement: {
+        prototype: HTMLAppLoremElement;
+        new (): HTMLAppLoremElement;
     };
     interface HTMLAppMarkdownElement extends Components.AppMarkdown, HTMLStencilElement {
     }
@@ -123,17 +269,35 @@ declare global {
         prototype: HTMLAppOutputElement;
         new (): HTMLAppOutputElement;
     };
+    interface HTMLAppPasswordElement extends Components.AppPassword, HTMLStencilElement {
+    }
+    var HTMLAppPasswordElement: {
+        prototype: HTMLAppPasswordElement;
+        new (): HTMLAppPasswordElement;
+    };
     interface HTMLAppQueryStringToJsonElement extends Components.AppQueryStringToJson, HTMLStencilElement {
     }
     var HTMLAppQueryStringToJsonElement: {
         prototype: HTMLAppQueryStringToJsonElement;
         new (): HTMLAppQueryStringToJsonElement;
     };
+    interface HTMLAppRegexElement extends Components.AppRegex, HTMLStencilElement {
+    }
+    var HTMLAppRegexElement: {
+        prototype: HTMLAppRegexElement;
+        new (): HTMLAppRegexElement;
+    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLAppTimestampElement extends Components.AppTimestamp, HTMLStencilElement {
+    }
+    var HTMLAppTimestampElement: {
+        prototype: HTMLAppTimestampElement;
+        new (): HTMLAppTimestampElement;
     };
     interface HTMLAppUrlDecoderElement extends Components.AppUrlDecoder, HTMLStencilElement {
     }
@@ -147,23 +311,48 @@ declare global {
         prototype: HTMLAppUrlEncoderElement;
         new (): HTMLAppUrlEncoderElement;
     };
+    interface HTMLAppUrlParserElement extends Components.AppUrlParser, HTMLStencilElement {
+    }
+    var HTMLAppUrlParserElement: {
+        prototype: HTMLAppUrlParserElement;
+        new (): HTMLAppUrlParserElement;
+    };
+    interface HTMLAppUuidElement extends Components.AppUuid, HTMLStencilElement {
+    }
+    var HTMLAppUuidElement: {
+        prototype: HTMLAppUuidElement;
+        new (): HTMLAppUuidElement;
+    };
     interface HTMLElementTagNameMap {
         "app-base64-decoder": HTMLAppBase64DecoderElement;
         "app-base64-encoder": HTMLAppBase64EncoderElement;
+        "app-case": HTMLAppCaseElement;
         "app-code-formatter": HTMLAppCodeFormatterElement;
+        "app-color": HTMLAppColorElement;
+        "app-cron": HTMLAppCronElement;
+        "app-diff": HTMLAppDiffElement;
+        "app-field": HTMLAppFieldElement;
+        "app-hash": HTMLAppHashElement;
         "app-home": HTMLAppHomeElement;
         "app-html-decoder": HTMLAppHtmlDecoderElement;
         "app-html-encoder": HTMLAppHtmlEncoderElement;
         "app-info": HTMLAppInfoElement;
         "app-input": HTMLAppInputElement;
         "app-json-parser": HTMLAppJsonParserElement;
+        "app-json-yaml": HTMLAppJsonYamlElement;
         "app-jwt": HTMLAppJwtElement;
+        "app-lorem": HTMLAppLoremElement;
         "app-markdown": HTMLAppMarkdownElement;
         "app-output": HTMLAppOutputElement;
+        "app-password": HTMLAppPasswordElement;
         "app-query-string-to-json": HTMLAppQueryStringToJsonElement;
+        "app-regex": HTMLAppRegexElement;
         "app-root": HTMLAppRootElement;
+        "app-timestamp": HTMLAppTimestampElement;
         "app-url-decoder": HTMLAppUrlDecoderElement;
         "app-url-encoder": HTMLAppUrlEncoderElement;
+        "app-url-parser": HTMLAppUrlParserElement;
+        "app-uuid": HTMLAppUuidElement;
     }
 }
 declare namespace LocalJSX {
@@ -171,8 +360,37 @@ declare namespace LocalJSX {
     }
     interface AppBase64Encoder {
     }
+    interface AppCase {
+    }
     interface AppCodeFormatter {
-        "match"?: MatchResults;
+        "language"?: string;
+    }
+    interface AppColor {
+    }
+    interface AppCron {
+    }
+    interface AppDiff {
+    }
+    interface AppField {
+        /**
+          * @default 'Input'
+         */
+        "label"?: string;
+        "onTransform"?: (event: AppFieldCustomEvent<any>) => void;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * @default 'text'
+         */
+        "type"?: string;
+        /**
+          * @default ''
+         */
+        "value"?: string;
+    }
+    interface AppHash {
     }
     interface AppHome {
     }
@@ -181,74 +399,167 @@ declare namespace LocalJSX {
     interface AppHtmlEncoder {
     }
     interface AppInfo {
+        /**
+          * @default ''
+         */
         "description"?: string;
+        /**
+          * @default 'Title'
+         */
         "title"?: string;
     }
     interface AppInput {
+        /**
+          * @default 'Input'
+         */
         "label"?: string;
-        "onTransform"?: (event: CustomEvent<any>) => void;
+        "onTransform"?: (event: AppInputCustomEvent<any>) => void;
+        /**
+          * @default false
+         */
         "side"?: boolean;
     }
     interface AppJsonParser {
     }
+    interface AppJsonYaml {
+    }
     interface AppJwt {
+    }
+    interface AppLorem {
     }
     interface AppMarkdown {
     }
     interface AppOutput {
+        /**
+          * @default null
+         */
         "highlight"?: any;
+        /**
+          * @default false
+         */
         "html"?: boolean;
+        /**
+          * @default 'Output'
+         */
         "label"?: string;
+        /**
+          * @default false
+         */
         "side"?: boolean;
+        /**
+          * @default ''
+         */
         "value"?: string;
+    }
+    interface AppPassword {
     }
     interface AppQueryStringToJson {
     }
+    interface AppRegex {
+    }
     interface AppRoot {
+    }
+    interface AppTimestamp {
     }
     interface AppUrlDecoder {
     }
     interface AppUrlEncoder {
     }
+    interface AppUrlParser {
+    }
+    interface AppUuid {
+    }
+
+    interface AppCodeFormatterAttributes {
+        "language": string;
+    }
+    interface AppFieldAttributes {
+        "label": string;
+        "value": string;
+        "type": string;
+        "placeholder": string;
+    }
+    interface AppInfoAttributes {
+        "title": string;
+        "description": string;
+    }
+    interface AppInputAttributes {
+        "side": boolean;
+        "label": string;
+    }
+    interface AppOutputAttributes {
+        "side": boolean;
+        "label": string;
+        "value": string;
+        "highlight": string;
+        "html": boolean;
+    }
+
     interface IntrinsicElements {
         "app-base64-decoder": AppBase64Decoder;
         "app-base64-encoder": AppBase64Encoder;
-        "app-code-formatter": AppCodeFormatter;
+        "app-case": AppCase;
+        "app-code-formatter": Omit<AppCodeFormatter, keyof AppCodeFormatterAttributes> & { [K in keyof AppCodeFormatter & keyof AppCodeFormatterAttributes]?: AppCodeFormatter[K] } & { [K in keyof AppCodeFormatter & keyof AppCodeFormatterAttributes as `attr:${K}`]?: AppCodeFormatterAttributes[K] } & { [K in keyof AppCodeFormatter & keyof AppCodeFormatterAttributes as `prop:${K}`]?: AppCodeFormatter[K] };
+        "app-color": AppColor;
+        "app-cron": AppCron;
+        "app-diff": AppDiff;
+        "app-field": Omit<AppField, keyof AppFieldAttributes> & { [K in keyof AppField & keyof AppFieldAttributes]?: AppField[K] } & { [K in keyof AppField & keyof AppFieldAttributes as `attr:${K}`]?: AppFieldAttributes[K] } & { [K in keyof AppField & keyof AppFieldAttributes as `prop:${K}`]?: AppField[K] };
+        "app-hash": AppHash;
         "app-home": AppHome;
         "app-html-decoder": AppHtmlDecoder;
         "app-html-encoder": AppHtmlEncoder;
-        "app-info": AppInfo;
-        "app-input": AppInput;
+        "app-info": Omit<AppInfo, keyof AppInfoAttributes> & { [K in keyof AppInfo & keyof AppInfoAttributes]?: AppInfo[K] } & { [K in keyof AppInfo & keyof AppInfoAttributes as `attr:${K}`]?: AppInfoAttributes[K] } & { [K in keyof AppInfo & keyof AppInfoAttributes as `prop:${K}`]?: AppInfo[K] };
+        "app-input": Omit<AppInput, keyof AppInputAttributes> & { [K in keyof AppInput & keyof AppInputAttributes]?: AppInput[K] } & { [K in keyof AppInput & keyof AppInputAttributes as `attr:${K}`]?: AppInputAttributes[K] } & { [K in keyof AppInput & keyof AppInputAttributes as `prop:${K}`]?: AppInput[K] };
         "app-json-parser": AppJsonParser;
+        "app-json-yaml": AppJsonYaml;
         "app-jwt": AppJwt;
+        "app-lorem": AppLorem;
         "app-markdown": AppMarkdown;
-        "app-output": AppOutput;
+        "app-output": Omit<AppOutput, keyof AppOutputAttributes> & { [K in keyof AppOutput & keyof AppOutputAttributes]?: AppOutput[K] } & { [K in keyof AppOutput & keyof AppOutputAttributes as `attr:${K}`]?: AppOutputAttributes[K] } & { [K in keyof AppOutput & keyof AppOutputAttributes as `prop:${K}`]?: AppOutput[K] };
+        "app-password": AppPassword;
         "app-query-string-to-json": AppQueryStringToJson;
+        "app-regex": AppRegex;
         "app-root": AppRoot;
+        "app-timestamp": AppTimestamp;
         "app-url-decoder": AppUrlDecoder;
         "app-url-encoder": AppUrlEncoder;
+        "app-url-parser": AppUrlParser;
+        "app-uuid": AppUuid;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-base64-decoder": LocalJSX.AppBase64Decoder & JSXBase.HTMLAttributes<HTMLAppBase64DecoderElement>;
-            "app-base64-encoder": LocalJSX.AppBase64Encoder & JSXBase.HTMLAttributes<HTMLAppBase64EncoderElement>;
-            "app-code-formatter": LocalJSX.AppCodeFormatter & JSXBase.HTMLAttributes<HTMLAppCodeFormatterElement>;
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-html-decoder": LocalJSX.AppHtmlDecoder & JSXBase.HTMLAttributes<HTMLAppHtmlDecoderElement>;
-            "app-html-encoder": LocalJSX.AppHtmlEncoder & JSXBase.HTMLAttributes<HTMLAppHtmlEncoderElement>;
-            "app-info": LocalJSX.AppInfo & JSXBase.HTMLAttributes<HTMLAppInfoElement>;
-            "app-input": LocalJSX.AppInput & JSXBase.HTMLAttributes<HTMLAppInputElement>;
-            "app-json-parser": LocalJSX.AppJsonParser & JSXBase.HTMLAttributes<HTMLAppJsonParserElement>;
-            "app-jwt": LocalJSX.AppJwt & JSXBase.HTMLAttributes<HTMLAppJwtElement>;
-            "app-markdown": LocalJSX.AppMarkdown & JSXBase.HTMLAttributes<HTMLAppMarkdownElement>;
-            "app-output": LocalJSX.AppOutput & JSXBase.HTMLAttributes<HTMLAppOutputElement>;
-            "app-query-string-to-json": LocalJSX.AppQueryStringToJson & JSXBase.HTMLAttributes<HTMLAppQueryStringToJsonElement>;
-            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-            "app-url-decoder": LocalJSX.AppUrlDecoder & JSXBase.HTMLAttributes<HTMLAppUrlDecoderElement>;
-            "app-url-encoder": LocalJSX.AppUrlEncoder & JSXBase.HTMLAttributes<HTMLAppUrlEncoderElement>;
+            "app-base64-decoder": LocalJSX.IntrinsicElements["app-base64-decoder"] & JSXBase.HTMLAttributes<HTMLAppBase64DecoderElement>;
+            "app-base64-encoder": LocalJSX.IntrinsicElements["app-base64-encoder"] & JSXBase.HTMLAttributes<HTMLAppBase64EncoderElement>;
+            "app-case": LocalJSX.IntrinsicElements["app-case"] & JSXBase.HTMLAttributes<HTMLAppCaseElement>;
+            "app-code-formatter": LocalJSX.IntrinsicElements["app-code-formatter"] & JSXBase.HTMLAttributes<HTMLAppCodeFormatterElement>;
+            "app-color": LocalJSX.IntrinsicElements["app-color"] & JSXBase.HTMLAttributes<HTMLAppColorElement>;
+            "app-cron": LocalJSX.IntrinsicElements["app-cron"] & JSXBase.HTMLAttributes<HTMLAppCronElement>;
+            "app-diff": LocalJSX.IntrinsicElements["app-diff"] & JSXBase.HTMLAttributes<HTMLAppDiffElement>;
+            "app-field": LocalJSX.IntrinsicElements["app-field"] & JSXBase.HTMLAttributes<HTMLAppFieldElement>;
+            "app-hash": LocalJSX.IntrinsicElements["app-hash"] & JSXBase.HTMLAttributes<HTMLAppHashElement>;
+            "app-home": LocalJSX.IntrinsicElements["app-home"] & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-html-decoder": LocalJSX.IntrinsicElements["app-html-decoder"] & JSXBase.HTMLAttributes<HTMLAppHtmlDecoderElement>;
+            "app-html-encoder": LocalJSX.IntrinsicElements["app-html-encoder"] & JSXBase.HTMLAttributes<HTMLAppHtmlEncoderElement>;
+            "app-info": LocalJSX.IntrinsicElements["app-info"] & JSXBase.HTMLAttributes<HTMLAppInfoElement>;
+            "app-input": LocalJSX.IntrinsicElements["app-input"] & JSXBase.HTMLAttributes<HTMLAppInputElement>;
+            "app-json-parser": LocalJSX.IntrinsicElements["app-json-parser"] & JSXBase.HTMLAttributes<HTMLAppJsonParserElement>;
+            "app-json-yaml": LocalJSX.IntrinsicElements["app-json-yaml"] & JSXBase.HTMLAttributes<HTMLAppJsonYamlElement>;
+            "app-jwt": LocalJSX.IntrinsicElements["app-jwt"] & JSXBase.HTMLAttributes<HTMLAppJwtElement>;
+            "app-lorem": LocalJSX.IntrinsicElements["app-lorem"] & JSXBase.HTMLAttributes<HTMLAppLoremElement>;
+            "app-markdown": LocalJSX.IntrinsicElements["app-markdown"] & JSXBase.HTMLAttributes<HTMLAppMarkdownElement>;
+            "app-output": LocalJSX.IntrinsicElements["app-output"] & JSXBase.HTMLAttributes<HTMLAppOutputElement>;
+            "app-password": LocalJSX.IntrinsicElements["app-password"] & JSXBase.HTMLAttributes<HTMLAppPasswordElement>;
+            "app-query-string-to-json": LocalJSX.IntrinsicElements["app-query-string-to-json"] & JSXBase.HTMLAttributes<HTMLAppQueryStringToJsonElement>;
+            "app-regex": LocalJSX.IntrinsicElements["app-regex"] & JSXBase.HTMLAttributes<HTMLAppRegexElement>;
+            "app-root": LocalJSX.IntrinsicElements["app-root"] & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "app-timestamp": LocalJSX.IntrinsicElements["app-timestamp"] & JSXBase.HTMLAttributes<HTMLAppTimestampElement>;
+            "app-url-decoder": LocalJSX.IntrinsicElements["app-url-decoder"] & JSXBase.HTMLAttributes<HTMLAppUrlDecoderElement>;
+            "app-url-encoder": LocalJSX.IntrinsicElements["app-url-encoder"] & JSXBase.HTMLAttributes<HTMLAppUrlEncoderElement>;
+            "app-url-parser": LocalJSX.IntrinsicElements["app-url-parser"] & JSXBase.HTMLAttributes<HTMLAppUrlParserElement>;
+            "app-uuid": LocalJSX.IntrinsicElements["app-uuid"] & JSXBase.HTMLAttributes<HTMLAppUuidElement>;
         }
     }
 }

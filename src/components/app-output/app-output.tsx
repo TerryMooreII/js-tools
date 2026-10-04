@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Watch} from '@stencil/core';
+import { Component, Element, Host, h, Prop, State, Watch} from '@stencil/core';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-css';
@@ -7,6 +7,9 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-markdown';
+import 'prismjs/components/prism-graphql';
 
 
 @Component({ 
@@ -23,18 +26,32 @@ export class AppOutput {
  
   @State() copyText = 'Copy'
 
+  @Element() el: HTMLElement
+
+  componentDidLoad() {
+    if (this.value) {
+      this.watchHandler(this.value)
+    }
+  }
+
+  @Watch('highlight')
+  highlightWatcher() {
+    this.watchHandler(this.value)
+  }
+
   @Watch('value')
   watchHandler(n) {
     if (this.html) {
-      const el = document.querySelector('#html')
+      const el = this.el.querySelector('#html')
       el.innerHTML = n
-      Prism.highlightAll()
+      Prism.highlightAllUnder(el)
       return
     }
 
-    const el = document.querySelector('code')
+    const el = this.el.querySelector('code')
     if (!this.highlight) {
       el.innerText = n
+      return
     }
     el.innerHTML = Prism.highlight(n, Prism.languages[this.highlight], this.highlight)
   }
