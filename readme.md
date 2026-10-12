@@ -1,1 +1,1 @@
-www.terrymooreii.com/tools
+https://tools.terrymooreii.dev

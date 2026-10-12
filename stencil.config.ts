@@ -14,9 +14,10 @@ export const config: Config = {
       type: 'www',
       // comment the following line to disable service workers in production
       serviceWorker: null,
-      baseUrl: '/js-tools/',
+      baseUrl: '/',
       copy: [
-        { src: '.htaccess', dest: '.htaccess' }
+        { src: '.htaccess', dest: '.htaccess' },
+        { src: 'CNAME', dest: 'CNAME' }
       ]
     },
   ],

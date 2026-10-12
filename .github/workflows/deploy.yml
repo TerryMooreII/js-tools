@@ -31,10 +31,10 @@ jobs:
       - run: npx stencil test --spec
       - run: npm run build
       # GitHub Pages serves 404.html for unknown paths, which lets deep links reach the app's router
-      - run: cp www/js-tools/index.html www/js-tools/404.html
+      - run: cp www/index.html www/404.html
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: www/js-tools
+          path: www
 
   deploy:
     needs: build
